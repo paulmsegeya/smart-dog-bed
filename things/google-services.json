@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1039095753289",
+    "firebase_url": "https://smart-dog-bed.firebaseio.com",
+    "project_id": "smart-dog-bed",
+    "storage_bucket": "smart-dog-bed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039095753289:android:bd45a18aa85a1e80",
+        "android_client_info": {
+          "package_name": "com.xavirigau.smartdogbed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039095753289-s20c01m0k2osn6u9okvfbml5sna8oa6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xavirigau.smartdogbed",
+            "certificate_hash": "5d0d8f7774350fe339d4211df20da42951ac56c8"
+          }
+        },
+        {
+          "client_id": "1039095753289-bh4mt38oknc3fa019auhfg844b2ro00u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC32wQEAjIjHLOfwHDv3utyxFArhdGiSk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039095753289-bh4mt38oknc3fa019auhfg844b2ro00u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
