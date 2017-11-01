@@ -34,6 +34,7 @@ dependencies {
   compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
   compile 'com.blundell:ads1015:0.0.3'
   compile 'com.google.firebase:firebase-database:10.2.4'
+  compile project(':core')
 }
 repositories {
   mavenCentral()

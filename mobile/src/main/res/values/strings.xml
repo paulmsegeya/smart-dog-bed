@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">smart-dog-bed</string>
+    <string name="your_dog_has_slept">Today, your dog has slept\n%s! 🐶</string>
 </resources>

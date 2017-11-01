@@ -2,29 +2,28 @@ package com.xavirigau.smartdogbed
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var presenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        val database = FirebaseDatabase.getInstance()
-//        val myRef = database.getReference("message")
-//        myRef.addValueEventListener(new ValueEventListener () {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot . getValue (String.class);
-//                Log.d(TAG, "Value is: " + value);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
+        val displayer = MainDisplayer(findViewById(android.R.id.content))
+        val resultReadingService = FirebaseResultReadingService(FirebaseDatabase.getInstance())
+        presenter = MainPresenter(displayer, resultReadingService)
     }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.startPresenting()
+    }
+
+    override fun onPause() {
+        presenter.stopPresenting()
+        super.onPause()
+    }
+
 }

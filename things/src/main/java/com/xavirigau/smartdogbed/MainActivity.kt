@@ -8,13 +8,14 @@ import com.google.firebase.database.FirebaseDatabase
 class MainActivity : Activity() {
 
     private lateinit var presenter: MainPresenter
-//    private lateinit var ads1015: Ads1015
+    private lateinit var ads1015: Ads1015
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        ads1015 = Ads1015.Factory().newAds1015(I2C_BUS, I2C_ADDRESS, GAIN)
-//        presenter = MainPresenter(Ads1015WeightReadingService(ads1015), FirebaseDatabase.getInstance())
-        presenter = MainPresenter(FakeWeightReadingService(), FirebaseDatabase.getInstance())
+        ads1015 = Ads1015.Factory().newAds1015(I2C_BUS, I2C_ADDRESS, GAIN)
+        val resultStoringService = FirebaseResultStoringService(FirebaseDatabase.getInstance())
+        presenter = MainPresenter(Ads1015WeightReadingService(ads1015), resultStoringService)
+//        presenter = MainPresenter(FakeWeightReadingService(), resultStoringService) // for testing
     }
 
     override fun onResume() {
@@ -28,7 +29,7 @@ class MainActivity : Activity() {
     }
 
     override fun onDestroy() {
-//        ads1015.close()
+        ads1015.close()
         super.onDestroy()
     }
 
