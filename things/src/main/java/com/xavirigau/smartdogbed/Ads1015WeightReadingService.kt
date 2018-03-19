@@ -16,10 +16,10 @@ class Ads1015WeightReadingService(
                 .distinctUntilChanged()
     }
 
-    private fun asResult(reading: Int): Result = if (reading < IDLE_THRESHOLD) Idle else Busy
+    private fun asResult(reading: Int): Result = if (reading < IDLE_THRESHOLD) Busy else Idle
 
     companion object {
-        private const val IDLE_THRESHOLD = 600 // need to tweak this
+        private const val IDLE_THRESHOLD = 995 // with Gain = 1
     }
 
 }

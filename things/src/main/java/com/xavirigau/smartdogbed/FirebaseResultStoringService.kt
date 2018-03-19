@@ -3,7 +3,7 @@ package com.xavirigau.smartdogbed
 import com.google.firebase.database.FirebaseDatabase
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 class FirebaseResultStoringService(
         private val database: FirebaseDatabase,

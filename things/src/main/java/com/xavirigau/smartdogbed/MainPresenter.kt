@@ -2,6 +2,7 @@ package com.xavirigau.smartdogbed
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
@@ -15,12 +16,11 @@ class MainPresenter(
 
     fun startPresenting() {
         disposable = weightReadingService.startReading(READING_FREQUENCY)
+                .map(resultStoringService::store)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(this::onResult, this::onError)
+                .subscribeBy(onNext = {}, onError = this::onError)
     }
-
-    private fun onResult(result: Result) = resultStoringService.store(result)
 
     private fun onError(throwable: Throwable) = logger.e("Error while reading data from the weight sensor", throwable)
 

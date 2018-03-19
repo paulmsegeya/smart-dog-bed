@@ -7,7 +7,7 @@ import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 
 class FirebaseResultReadingService(
